@@ -1,0 +1,12 @@
+{
+  "name": "sql-inlist",
+  "private": true,
+  "dependencies": {
+    "jquery": "1.11.3",
+    "modernizr": "~2.8.1"
+  },
+  "devDependencies": {
+    "chai": "~3.3.0",
+    "mocha": "~2.3.2"
+  }
+}
