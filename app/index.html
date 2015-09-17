@@ -9,15 +9,18 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
 
-    <!-- build:css styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
-
     <!-- build:css styles/main.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/normalize-css/normalize.css">
+    <!-- endbower -->
+    <link rel="stylesheet" href="styles/vendor/html5bp/main.css">
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/font-awesome/font-awesome.css">
+    <!-- endbower -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-    
+
+       
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="/bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
@@ -45,8 +48,8 @@
       <div class="inputgroup" id="inputopt">
        Select Input Type:
        <input type="radio" name="dType" value="1" checked>Numeric
-       <input type="radio" name="dType" value="1" checked>String
-       <input type="radio" name="dType" value="1" checked>List
+       <input type="radio" name="dType" value="1">String
+       <input type="radio" name="dType" value="1">List
        </div>
        <div>
        <textarea id="cainput"></textarea>

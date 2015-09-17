@@ -8,89 +8,84 @@
  * Date: 2015-09-17
  */
 'use strict';
-
- // Helper Functions
-
-  function stringify(value) {
-    var tS = '',
-      i;
-    for (i = 0; i < value.length; i++) {
-      tS += '\'' + value[i] + '\',';
-    }
-    return 'IN (' + tS.slice(0, -1) + ')';
+// Helper Functions
+function stringify(value) {
+  var tS = '',
+    i;
+  for (i = 0; i < value.length; i++) {
+    tS += '\'' + value[i] + '\',';
   }
+  return 'IN (' + tS.slice(0, -1) + ')';
+}
 
-  function numberfy(value) {
-    var tS = '',
-      i;
-    for (i = 0; i < value.length; i++) {
-      tS += value[i] + ',';
-    }
-    return 'IN (' + tS.slice(0, -1) + ')';
+function numberfy(value) {
+  var tS = '',
+    i;
+  for (i = 0; i < value.length; i++) {
+    tS += value[i] + ',';
   }
+  return 'IN (' + tS.slice(0, -1) + ')';
+}
 
-  function listify(value) {
-    var tS = '',
-      i;
-    for (i = 0; i < value.length; i++) {
-      tS += value[i] + '\n';
-    }
-    return tS.slice(0, -1);
+function listify(value) {
+  var tS = '',
+    i;
+  for (i = 0; i < value.length; i++) {
+    tS += value[i] + '\n';
   }
+  return tS.slice(0, -1);
+}
+/* Duplicate Removal Algorithm
+ * Adapted from #569 "Performance" from
+ * http://www.stackoverflow.com/questions/9229645/remove-duplicates-from-javascript-array */
 
-  /* Duplicate Removal Algorithm
-   * Adapted from #569 "Performance" from
-   * http://www.stackoverflow.com/questions/9229645/remove-duplicates-from-javascript-array */
-  function rmDuplicates(a) {
-    var seen = {},
-      out = [],
-      len = a.length,
-      i = 0,
-      j = 0;
-    for (i = 0; i < len; i++) {
-      var item = a[i];
-      if (seen[item] !== 1) {
-        seen[item] = 1;
-        out[j++] = item;
-      }
+function rmDuplicates(a) {
+  var seen = {},
+    out = [],
+    len = a.length,
+    i = 0,
+    j = 0;
+  for (i = 0; i < len; i++) {
+    var item = a[i];
+    if (seen[item] !== 1) {
+      seen[item] = 1;
+      out[j++] = item;
     }
-    return out;
   }
-  /* Raw line-break seperated input conversion
-   * to arrray based on method 'Grep' from
-   * the jQuery project. Previous attempts from
-   * novel javascript solution was yielding
-   * unexpected behavior */
-  function toArray(elems, callback, invert) {
-    var callbackInverse,
-      matches = [],
-      i = 0,
-      length = elems.length,
-      callbackExpect = !invert;
-    // Go through the Array, only saving the items
-    // that pass the validator function.
-    for (; i < length; i++) {
-      callbackInverse = !callback(elems[i], i);
-      if (callbackInverse !== callbackExpect) {
-        matches.push(elems[i]);
-      }
-    }
-    return matches;
-  }
+  return out;
+}
+/* Raw line-break seperated input conversion
+ * to arrray based on method 'Grep' from
+ * the jQuery project. Previous attempts from
+ * novel javascript solution was yielding
+ * unexpected behavior */
 
+function toArray(elems, callback, invert) {
+  var callbackInverse,
+    matches = [],
+    i = 0,
+    length = elems.length,
+    callbackExpect = !invert;
+  // Go through the Array, only saving the items
+  // that pass the validator function.
+  for (; i < length; i++) {
+    callbackInverse = !callback(elems[i], i);
+    if (callbackInverse !== callbackExpect) {
+      matches.push(elems[i]);
+    }
+  }
+  return matches;
+}
 var MakeList = function(rawList) {
   // Constructor Variables
   this.rawList = rawList;
   this.listArray = toArray(this.rawList.split('\n'), function(n) {
     return n;
   });
-
-
   // Return Item Count
   MakeList.prototype.listCount = function() {
     return this.listArray.length;
   };
-
   /* Format Controller
    * ----------------------------
    * Return formatted SQL In List:
@@ -114,12 +109,10 @@ var MakeList = function(rawList) {
     }
     return result;
   };
-
   MakeList.prototype.removeDuplicates = function() {
     this.listArray = rmDuplicates(this.listArray);
     return true;
   };
-
   MakeList.prototype.removeFirst = function() {
     this.listArray.splice(0, 1);
     return true;

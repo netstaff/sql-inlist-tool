@@ -2,6 +2,28 @@
 // This file should be the first file called
 // in styles/main.scss
 
+// Body
+$global-body-font-color: #333;
+
+
+// Custom Variables
+$inlist-title-bg-color: #e87722;
+$inlist-title-font-color: #fff;
+$inlist-title-bottom-color: #eaaa00;
+
+// Header
+$header-bg-color: #fff;
+$header-font-color: #000;
+$header-brand-link-color: #000;
+
+// Footer
+$footer-bg-color: #63666a;
+$footer-font-color: #000;
+$footer-top-color: #d0d0ce;
+
+// Copyright (bottom)
+$copyright-bg-color: #00549f;
+
 // Color Declarations
 $primary-color: #ff0000;
 $secondary-color: #ccc;
@@ -12,14 +34,13 @@ $nav-link-hover-color: #63666A;
 $nav-sep-color: #999;
 
 
-
-
 // Grid Calculations
 $container-base: 940;
 $num-columns: 12;
 
 //Main Grid Container
-$main-grid-width: #{$container-base}px;
+//$main-grid-width: #{$container-base}px;
+$main-grid-width: 90%;
 
 // Grid Calculation Functions
 @function gridcalc($target) {
