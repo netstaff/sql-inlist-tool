@@ -1,0 +1,22 @@
+/* Navigation
+-----------------------------*/
+
+.widget-links {
+	list-style: none;
+	padding:0;
+	margin:0;
+	li {
+		display:block;
+		border-bottom: 1px dotted $nav-sep-color;
+		padding: 5px 0;
+	}
+	li a:link, & li a:visited {
+		font-size: 1.6em;
+		font-weight:bold;
+		text-decoration: none;
+		color: $nav-link-color;
+	}
+	li a:hover {
+		color: $nav-link-hover-color;
+	}
+}

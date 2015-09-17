@@ -1,0 +1,10 @@
+/* Column Offsets for Responsive Grid
+--------------------------------------------*/
+@for $i from 1 through $num-columns {
+	.col-lefto-#{$i} {
+		margin-left: colwidth($i);
+	}
+	.col-righto-#{$i} {
+		margin-right: colwidth($i);
+	}
+}

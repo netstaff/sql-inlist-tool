@@ -1,0 +1,27 @@
+/* Responsive Grid
+--------------------------------------------*/
+
+/* Main Container Classes */
+.container-fluid {
+	width:100%;
+	margin:0;
+	padding:0;
+}
+
+.container {
+	position:relative;
+	width: $main-grid-width;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+/* Fluid Columns */
+@for $i from 1 through $num-columns {
+	.col-#{$i} {
+		float: left;
+		width: colwidth($i);
+		padding: 0 15px;
+		@include border-box;
+	}
+}
+

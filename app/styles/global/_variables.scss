@@ -1,0 +1,31 @@
+// Variable Declarations
+// This file should be the first file called
+// in styles/main.scss
+
+// Color Declarations
+$primary-color: #ff0000;
+$secondary-color: #ccc;
+
+// Navigation Colors
+$nav-link-color: #00549F;
+$nav-link-hover-color: #63666A;
+$nav-sep-color: #999;
+
+
+
+
+// Grid Calculations
+$container-base: 940;
+$num-columns: 12;
+
+//Main Grid Container
+$main-grid-width: #{$container-base}px;
+
+// Grid Calculation Functions
+@function gridcalc($target) {
+	@return ($target/$container-base) * 100%;
+}
+
+@function colwidth($spansize) {
+	@return (($container-base / $num-columns) * $spansize) / $container-base * 100%;
+}
